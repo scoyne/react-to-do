@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class ToDo extends Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <li>
         <input type="checkbox" checked={ this.props.isCompleted } onChange={ this.props.toggleComplete } />

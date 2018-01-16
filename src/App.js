@@ -16,12 +16,13 @@ class App extends Component {
   }
 
   deleteTodo(index) {
-    console.log('delete pressed');
-    this.setState({index: this.state.todos.filter(index => !this.state.todos.removeChild(index) )
+    const removeTodo = this.state.todos[index];
+    const newTodos = this.state.todos.filter(todos => {
+      return todos !== removeTodo;
     });
-
-    // node.removeChild(e);
+    this.setState({ todos: [...newTodos] })
   }
+
 
   handleChange(e) {
     this.setState({ newTodoDescription: e.target.value })
@@ -40,7 +41,6 @@ class App extends Component {
     todo.isCompleted = todo.isCompleted ? false : true;
     this.setState({ todos: todos });
   }
-
   render() {
     return (
       <div className="App">
